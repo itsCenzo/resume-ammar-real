@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ammar Shamsuri | Personal Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="fade-in">
+    <div class="container">
+      <h1 style="text-align: center;">Ammar Shamsuri</h1>
+      <nav>
+        <ul>
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#bio">About</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#projects">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#reach">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section id="intro" class="fade-in">
+    <div class="container">
+     <h2><span class="typed-text"></span><span class="cursor">|</span></h2>
+      <p>A motivated student and future front-end developer.</p>
+      <button onclick="document.getElementById('reach').scrollIntoView({ behavior: 'smooth' })">Reach Me</button>
+    </div>
+  </section>
+
+  <section id="bio" class="fade-in">
+    <div class="section-box">
+      <h2>About Me</h2>
+      <img src="profile.jpg" alt="Photo of Your Name" />
+      <p>
+        I’m currently studying at Universiti Teknologi MARA in the field of Information Management. I enjoy learning new digital skills and applying them in creative projects. I love working on web interfaces and exploring user-centered design.
+      </p>
+      <a href="information.html">
+        <button>View More About Me</button>
+      </a>
+    </div>
+  </section>
+
+  <section id="skills" class="fade-in">
+    <div class="section-box">
+      <h2>Skills</h2>
+      <ul>
+        <li><abbr title="JavaScript with modern standards">Advanced JavaScript (ES6+, async/await, DOM manipulation)</abbr></li>
+        <li>React.js with functional components and hooks</li>
+        <li>Responsive design using Tailwind CSS & Flexbox/Grid</li>
+        <li>API Integration (RESTful & third-party services)</li>
+        <li>Version Control using Git and GitHub (feature branching)</li>
+        <li>Deployment using Netlify / Vercel</li>
+        <li>Performance optimization & code splitting</li>
+        <li>Accessibility (A11y) & semantic HTML</li>
+        <li>Firebase (Authentication, Firestore, Hosting)</li>
+      </ul>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Skill</th>
+            <th>Level</th>
+            <th>Experience (Years)</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>HTML/CSS</td>
+            <td>Advanced</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>JavaScript</td>
+            <td>Intermediate</td>
+            <td>2</td>
+          </tr>
+          <tr>
+            <td>React.js</td>
+            <td>Intermediate</td>
+            <td>1.5</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section id="projects" class="fade-in">
+    <div class="section-box">
+      <h2>Experience</h2>
+      <div class="card">
+        <h3>Assistant to Senior System Administrator</h3>
+        <p>DHL eCommerce : April 2025 - Now</p>
+        <p>Assisted in managing and maintaining internal system operations, user access control, and server monitoring.</p>
+      </div>
+      <a href="experience.html">
+        <button>More Of My Experience</button>
+      </a>
+    </div>
+  </section>
+
+  <section id="education" class="fade-in">
+    <div class="section-box">
+      <h2>Education</h2>
+      <div class="card">
+        <p><strong>Degree in System Management</strong></p>
+        <p>Universiti Teknologi MARA (UiTM)</p>
+        <p>Expected Completion: 2025</p>
+      </div>
+      <div class="card">
+        <p><strong>Diploma in Information Management</strong></p>
+        <p>Universiti Teknologi MARA (UiTM)</p>
+        <p>Year Completion: 2023</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="reach" class="fade-in">
+    <div class="section-box">
+      <h2>Contact</h2>
+      <form id="contactForm">
+        <label for="fullname">Full Name *</label>
+        <input type="text" id="fullname" name="fullname" required placeholder="Your full name" />
+        <label for="email">Email Address *</label>
+        <input type="email" id="email" name="email" required placeholder="example@gmail.com" />
+        <label for="msg">Message *</label>
+        <textarea id="msg" name="msg" required placeholder="Type your message/inquiry here..."></textarea>
+        <button type="submit">Submit</button>
+        <p id="form-message"></p>
+      </form>
+    </div>
+  </section>
+
+
+  <footer class="fade-in">
+    <p>© 2025 Your Name. Built with passion and persistence.</p>
+  </footer>
+
+  <button id="top-button" title="Back to top">↑</button>
+
+  <script>
+    const topBtn = document.getElementById('top-button');
+    window.addEventListener('scroll', () => {
+      topBtn.classList.toggle('show', window.scrollY > 300);
+    });
+
+    topBtn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    const typedTextSpan = document.querySelector(".typed-text");
+    const cursorSpan = document.querySelector(".cursor");
+    const textArray = ["Hello, It's Me Ammar", "I'm a Web Enthusiast", "Future Front-End Developer"];
+    const typingDelay = 100, erasingDelay = 60, newTextDelay = 1500;
+    let textArrayIndex = 0, charIndex = 0;
+
+    function type() {
+      if (charIndex < textArray[textArrayIndex].length) {
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex++);
+        setTimeout(type, typingDelay);
+      } else setTimeout(erase, newTextDelay);
+    }
+
+    function erase() {
+      if (charIndex > 0) {
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, --charIndex);
+        setTimeout(erase, erasingDelay);
+      } else {
+        textArrayIndex = (textArrayIndex + 1) % textArray.length;
+        setTimeout(type, typingDelay + 300);
+      }
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      if (textArray.length) setTimeout(type, 1000);
+    });
+
+    const form = document.getElementById("contactForm");
+    const formMessage = document.getElementById("form-message");
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const name = form.fullname.value.trim();
+      const email = form.email.value.trim();
+      const message = form.msg.value.trim();
+      formMessage.textContent = "";
+      formMessage.style.color = "red";
+
+      const emailPattern = /^[a-zA-Z0-9._%+-]+@(gmail\.com|yahoo\.com|hotmail\.com|outlook\.com|uitm\.edu\.my|[\w.-]+\.edu\.my)$/;
+      if (!name || !email || !message) {
+        formMessage.textContent = "Please fill in all fields.";
+      } else if (!emailPattern.test(email)) {
+        formMessage.textContent = "Please enter a valid email address.";
+      } else {
+        formMessage.style.color = "green";
+        formMessage.textContent = "Message successfully sent!";
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
